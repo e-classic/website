@@ -3,23 +3,29 @@
     {
       "title": "木更津市 K様邸",
       "category": "カナディアンソーラー+OMRON蓄電池",
-      "meta": "パネル 10.01kW ・ 蓄電池 16.4kWh ",
+      "meta": "パネル10.01kW ・ OMRONマルチ16.4kWh ",
       "image": "/images/uploads/line_album_419山武郡-藤崎卓也様完工写真_250419_113.jpeg",
       "description": "猫ちゃんを飼われている都合上、常にエアコンをつけており電気代が毎月¥30,000前後のお客様でしたが、大容量のパネルを設置したことで電気代のストレスから解放されたと喜んでいただきました。"
     },
     {
       "title": "足立区 S様邸",
       "category": "長州産業蓄電池",
-      "meta": "蓄電池12.7kwh 全負荷HYB型",
+      "meta": "スマートPVマルチ12.7kwh 全負荷HYB型",
       "image": "/images/uploads/img_3100.jpeg",
       "description": "来月に卒FITを迎えるため蓄電池の導入をご検討されていたお客様。\nご要望により、隠蔽配線にて施工いたしました。"
     },
     {
       "title": "横須賀市 Y様邸",
       "category": "長府工産蓄電池",
-      "meta": "蓄電池7.4kwh",
+      "meta": "リブタワープラス7.4kwh",
       "image": "/images/uploads/蓄電池設置写真.jpeg",
       "description": "災害対策で蓄電池の導入を決められたお客様。\n隠蔽配線にて綺麗に施工することができました。"
+    },
+    {
+      "title": "八王子市 T様邸",
+      "category": "ダイヤゼブラ蓄電池",
+      "meta": "EIBS7 14.08kwh",
+      "image": "/images/uploads/line_album_85-柏市　山田　大智　様邸_250807_96.jpeg"
     }
   ]
 }
