@@ -44,9 +44,9 @@
   .btn-ghost .arrow{transition:transform .25s;display:inline-block}
   .btn-ghost:hover .arrow{transform:translateX(4px)}
 
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;background:radial-gradient(120% 90% at 78% 8%,rgba(227,183,101,0.22),transparent 48%),radial-gradient(140% 120% at 12% 100%,rgba(31,59,48,0.10),transparent 55%),var(--paper);overflow:hidden}
-  .hero-inner{position:relative;z-index:2;padding:118px 0 86px;max-width:880px;margin:0 auto;width:100%}
-  .hero-illust{width:100%;border-radius:16px;border:1px solid var(--line);box-shadow:0 34px 80px -46px rgba(31,59,48,.55);margin-bottom:34px;display:block}
+  .hero{position:relative;padding-top:84px;background:radial-gradient(120% 90% at 78% 8%,rgba(227,183,101,0.22),transparent 48%),radial-gradient(140% 120% at 12% 100%,rgba(31,59,48,0.10),transparent 55%),var(--paper);overflow:hidden}
+  .hero-body{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:42px 28px 92px}
+  .hero-illust{width:100%;display:block}
   .hero p.lead{font-size:1.02rem;color:var(--ink-soft);max-width:38em;line-height:2.05;margin-bottom:40px}
   .hero-cta{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
   .hero-foot{position:absolute;bottom:26px;left:0;right:0;z-index:2}
@@ -202,7 +202,8 @@
     nav.main{display:none}
     .menu-toggle{display:block}
     .sec{padding:78px 0}
-    .hero-inner{padding:128px 0 96px}
+    .hero{padding-top:70px}
+    .hero-body{padding:30px 22px 80px}
     .maker{width:calc((100% - 16px)/2)}
     .works-grid,.col-grid{grid-template-columns:1fr}
     .hero-foot{display:none}
@@ -253,8 +254,8 @@
 </nav>
 
 <section class="hero" id="top">
-  <div class="wrap hero-inner">
-    <img class="hero-illust reveal" src="hero.jpg" alt="太陽光発電・蓄電池を一社完結。ECO × 上質な施工品質で良い暮らしをお届けします。創る・ためる・つかう・まもる。">
+  <img class="hero-illust reveal" src="hero.jpg" alt="太陽光発電・蓄電池を一社完結。ECO × 上質な施工品質で良い暮らしをお届けします。創る・ためる・つかう・まもる。">
+  <div class="hero-body">
     <p class="lead">太陽光パネルと蓄電池のご相談から施工、その先のアフターサービスまで、すべてを一社完結でご案内。株式会社E-Classicは、エコで良い暮らしを、「上質に」皆様にお届けいたします。</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">お問い合わせ</a>
