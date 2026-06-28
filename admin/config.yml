@@ -1,0 +1,48 @@
+backend:
+  name: github
+  repo: e-classic/website   # ← GitHubのユーザー名/リポジトリ名。リポジトリ名は「website」で作成してください
+  branch: main
+
+# アップロードした画像の保存先
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# 管理画面の表示言語
+locale: "ja"
+
+collections:
+  - name: "news"
+    label: "お知らせ"
+    files:
+      - name: "news_list"
+        label: "お知らせ一覧"
+        file: "content/news.json"
+        fields:
+          - label: "お知らせ"
+            name: "items"
+            widget: "list"
+            label_singular: "お知らせ"
+            summary: "{{fields.date}}　{{fields.title}}"
+            fields:
+              - { label: "日付", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "タイトル", name: "title", widget: "string" }
+              - { label: "本文", name: "body", widget: "text", required: false }
+
+  - name: "works"
+    label: "施工事例"
+    files:
+      - name: "works_list"
+        label: "施工事例一覧"
+        file: "content/works.json"
+        fields:
+          - label: "施工事例"
+            name: "items"
+            widget: "list"
+            label_singular: "事例"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "タイトル（例：〇〇市 K様邸）", name: "title", widget: "string" }
+              - { label: "種別（例：太陽光＋蓄電池）", name: "category", widget: "string", required: false }
+              - { label: "概要（例：パネル 5.6kW ・ 2025年施工）", name: "meta", widget: "string", required: false }
+              - { label: "写真", name: "image", widget: "image", required: false }
+              - { label: "コメント", name: "description", widget: "text", required: false }
