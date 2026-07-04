@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: e-classic/website   # ← GitHubのユーザー名/リポジトリ名。リポジトリ名は「website」で作成してください
+  repo: e-classic/website
   branch: main
 
 # アップロードした画像の保存先
@@ -46,3 +46,132 @@ collections:
               - { label: "概要（例：パネル 5.6kW ・ 2025年施工）", name: "meta", widget: "string", required: false }
               - { label: "写真", name: "image", widget: "image", required: false }
               - { label: "コメント", name: "description", widget: "text", required: false }
+
+  - name: "columns"
+    label: "お役立ちコラム"
+    files:
+      - name: "columns_list"
+        label: "コラム一覧"
+        file: "content/columns.json"
+        fields:
+          - label: "コラム"
+            name: "items"
+            widget: "list"
+            label_singular: "コラム"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "タイトル", name: "title", widget: "string" }
+              - { label: "公開日", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "カテゴリ（例：太陽光豆知識）", name: "category", widget: "string", required: false }
+              - { label: "サムネイル画像", name: "image", widget: "image", required: false }
+              - { label: "本文", name: "body", widget: "text" }
+
+  - name: "faq"
+    label: "よくあるご質問"
+    files:
+      - name: "faq_list"
+        label: "Q&A一覧"
+        file: "content/faq.json"
+        fields:
+          - label: "質問と回答"
+            name: "items"
+            widget: "list"
+            label_singular: "Q&A"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "質問", name: "question", widget: "string" }
+              - { label: "回答", name: "answer", widget: "text" }
+
+  - name: "hero"
+    label: "ヒーロー（トップビジュアル）"
+    files:
+      - name: "hero_content"
+        label: "ヒーロー内容"
+        file: "content/hero.json"
+        fields:
+          - { label: "ヒーロー画像", name: "image", widget: "image" }
+          - { label: "メインキャッチコピー", name: "title", widget: "string" }
+          - { label: "説明文", name: "description", widget: "text" }
+          - label: "ボタン"
+            name: "buttons"
+            widget: "list"
+            label_singular: "ボタン"
+            fields:
+              - { label: "ボタンテキスト", name: "text", widget: "string" }
+              - { label: "リンク先URL", name: "url", widget: "string" }
+
+  - name: "process"
+    label: "ご導入の流れ"
+    files:
+      - name: "process_content"
+        label: "導入フロー"
+        file: "content/process.json"
+        fields:
+          - { label: "セクションタイトル", name: "title", widget: "string" }
+          - { label: "セクション説明", name: "description", widget: "text", required: false }
+          - label: "ステップ"
+            name: "steps"
+            widget: "list"
+            label_singular: "ステップ"
+            summary: "{{fields.step}} - {{fields.title}}"
+            fields:
+              - { label: "ステップ番号（01, 02, 03...）", name: "step", widget: "string" }
+              - { label: "タイトル", name: "title", widget: "string" }
+              - { label: "説明", name: "description", widget: "text", required: false }
+              - { label: "バッジテキスト（例：初回調査無料）", name: "badge", widget: "string", required: false }
+
+  - name: "features"
+    label: "当社の特徴"
+    files:
+      - name: "features_content"
+        label: "特徴一覧"
+        file: "content/features.json"
+        fields:
+          - { label: "セクションタイトル", name: "title", widget: "string" }
+          - { label: "セクション説明", name: "description", widget: "text", required: false }
+          - label: "特徴"
+            name: "items"
+            widget: "list"
+            label_singular: "特徴"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "タイトル", name: "title", widget: "string" }
+              - { label: "説明", name: "description", widget: "text" }
+              - { label: "アイコン画像（オプション）", name: "icon", widget: "image", required: false }
+
+  - name: "company"
+    label: "会社概要"
+    files:
+      - name: "company_content"
+        label: "会社情報"
+        file: "content/company.json"
+        fields:
+          - { label: "会社名", name: "name", widget: "string" }
+          - { label: "企業理念（ミッション）", name: "mission", widget: "text" }
+          - { label: "ビジョン", name: "vision", widget: "text", required: false }
+          - { label: "所在地", name: "address", widget: "string" }
+          - { label: "電話番号", name: "phone", widget: "string" }
+          - { label: "メールアドレス", name: "email", widget: "string" }
+          - { label: "営業時間", name: "businessHours", widget: "string" }
+          - { label: "定休日", name: "closedDays", widget: "string", required: false }
+          - { label: "設立年", name: "established", widget: "string", required: false }
+          - { label: "代表者名", name: "representative", widget: "string", required: false }
+
+  - name: "footer"
+    label: "フッター"
+    files:
+      - name: "footer_content"
+        label: "フッター内容"
+        file: "content/footer.json"
+        fields:
+          - { label: "コピーライト表記", name: "copyright", widget: "string" }
+          - label: "フッターリンク"
+            name: "links"
+            widget: "list"
+            label_singular: "リンク"
+            summary: "{{fields.text}}"
+            fields:
+              - { label: "リンクテキスト", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "会社電話番号", name: "phone", widget: "string", required: false }
+          - { label: "会社メールアドレス", name: "email", widget: "string", required: false }
