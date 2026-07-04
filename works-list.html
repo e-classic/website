@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>施工実績一覧｜株式会社E-Classic</title>
+<meta name="description" content="株式会社E-Classicの施工実績一覧ページです。太陽光発電・蓄電池の設置事例をご紹介しています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F7F4EC;--paper-2:#EFEADD;--ink:#2A2722;--ink-soft:#5B574C;--pine:#1F3B30;--pine-deep:#16291F;--sun:#C68B2C;--sun-soft:#E3B765;--sage:#8B9A82;--line:rgba(37,36,31,0.12);--line-light:rgba(247,244,236,0.18);--serif:"Shippori Mincho B1",serif;--sans:"Zen Kaku Gothic New",sans-serif;--latin:"Cormorant Garamond",serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(247,244,236,0.93);backdrop-filter:blur(8px);padding:11px 0;box-shadow:0 1px 0 var(--line)}
+  .bar{display:flex;align-items:center;gap:20px}
+  .brand{display:flex;align-items:baseline;gap:7px}
+  .brand a{display:flex;align-items:baseline;gap:7px;line-height:1}
+  .brand .jp{font-family:var(--serif);font-size:.9rem;color:var(--pine);letter-spacing:.12em}
+  .brand .mark{font-family:var(--latin);font-size:1.7rem;letter-spacing:.03em;color:var(--pine);font-weight:700}
+  .back-link{font-size:.82rem;color:var(--pine);font-weight:500;border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .25s}
+  .back-link:hover{color:var(--sun)}
+
+  .hero-section{padding-top:100px;background:radial-gradient(120% 90% at 78% 8%,rgba(227,183,101,0.22),transparent 48%),radial-gradient(140% 120% at 12% 100%,rgba(31,59,48,0.10),transparent 55%),var(--paper);padding-bottom:60px}
+  .hero-section h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);color:var(--pine-deep);margin-bottom:14px;letter-spacing:.03em}
+  .hero-section p{font-size:1.05rem;color:var(--ink-soft);max-width:46em}
+
+  .sec{padding:80px 0}
+  .sec-head{margin-bottom:40px}
+  .sec-title{font-family:var(--serif);font-size:1.8rem;color:var(--pine-deep);margin-bottom:24px;letter-spacing:.03em}
+
+  .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .case{background:var(--paper-2);border:1px solid var(--line);border-radius:6px;overflow:hidden;transition:transform .35s,box-shadow .35s}
+  .case:hover{transform:translateY(-4px);box-shadow:0 26px 52px -32px rgba(31,59,48,.45)}
+  .case figure,.case .ph{margin:0;aspect-ratio:4/3;border-bottom:1px solid var(--line);overflow:hidden}
+  .case figure img{width:100%;height:100%;object-fit:cover}
+  .case .ph{background:repeating-linear-gradient(135deg,#e7e1cf,#e7e1cf 14px,#e1dac4 14px,#e1dac4 28px);display:flex;align-items:center;justify-content:center;color:var(--sage);font-size:.74rem;letter-spacing:.18em}
+  .case .body{padding:22px 24px 26px}
+  .case .tag{display:inline-block;font-size:.7rem;letter-spacing:.14em;color:var(--sun);border:1px solid var(--sun);border-radius:999px;padding:3px 12px;margin-bottom:12px}
+  .case h3{font-family:var(--serif);font-size:1.12rem;color:var(--pine-deep);margin-bottom:8px;letter-spacing:.02em;line-height:1.5}
+  .case .meta{font-size:.78rem;color:var(--sage);letter-spacing:.05em;margin-bottom:10px}
+  .case p{font-size:.85rem;color:var(--ink-soft);line-height:1.85}
+
+  .pagination{display:flex;justify-content:center;gap:8px;margin-top:60px;align-items:center}
+  .pagination a,.pagination span{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line);border-radius:4px;font-size:.85rem;transition:background .25s,border-color .25s,color .25s}
+  .pagination a{background:#fff;color:var(--pine);cursor:pointer}
+  .pagination a:hover{background:var(--sun);border-color:var(--sun);color:#fff}
+  .pagination span.current{background:var(--pine);color:var(--paper);border-color:var(--pine)}
+  .pagination span.dots{border:none;color:var(--sage)}
+  .pagination a.disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+
+  footer{background:var(--pine-deep);color:rgba(247,244,236,.72);padding:40px 0 24px;margin-top:60px;border-top:1px solid var(--line-light)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:.76rem;letter-spacing:.08em}
+  .foot-bottom .url{font-family:var(--latin);color:var(--sun-soft);font-size:.95rem;letter-spacing:.03em}
+
+  .empty{text-align:center;padding:60px 20px;color:var(--sage)}
+  .empty p{font-size:1.1rem;margin-bottom:10px}
+
+  @media(max-width:880px){
+    .works-grid{grid-template-columns:1fr 1fr;gap:20px}
+  }
+  @media(max-width:680px){
+    .hero-section{padding-top:80px;padding-bottom:40px}
+    .sec{padding:50px 0}
+    .works-grid{grid-template-columns:1fr;gap:15px}
+    .pagination a,.pagination span{width:36px;height:36px;font-size:.75rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <a href="index.html" class="back-link">← トップページに戻る</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero-section">
+  <div class="wrap">
+    <h1>施工実績</h1>
+    <p>株式会社E-Classicが手がけた、太陽光発電・蓄電池の施工事例をご紹介します。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="sec-title">全施工実績一覧</h2>
+    </div>
+    <div class="works-grid" id="worksGrid"><p class="feed-empty">読み込み中…</p></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-bottom">
+    <span class="url">https://e-classic.jp</span>
+    <span>© 2026 E-Classic Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var itemsPerPage=12;
+  var currentPage=1;
+  var allItems=[];
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
+  function nl2br(s){return esc(s).replace(/\n/g,'<br>');}
+  function loadJSON(p){return fetch(p+'?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).catch(function(){return null;});}
+
+  loadJSON('content/works.json').then(function(d){
+    var grid=document.getElementById('worksGrid');
+    allItems=(d&&d.items)||[];
+    if(!allItems.length){grid.innerHTML='<div class="empty"><p>施工実績は準備中です。</p></div>';return;}
+    renderPage(1);
+  });
+
+  function renderPage(page){
+    currentPage=page;
+    var grid=document.getElementById('worksGrid');
+    var start=(page-1)*itemsPerPage;
+    var end=start+itemsPerPage;
+    var items=allItems.slice(start,end);
+    
+    grid.innerHTML=items.map(function(it){
+      var m=it.image?('<figure><img src="'+esc(it.image)+'" alt="'+esc(it.title)+'"></figure>'):'<div class="ph">PHOTO</div>';
+      return '<article class="case">'+m+'<div class="body">'+(it.category?'<span class="tag">'+esc(it.category)+'</span>':'')+'<h3>'+esc(it.title)+'</h3>'+(it.meta?'<div class="meta">'+esc(it.meta)+'</div>':'')+(it.description?'<p>'+nl2br(it.description)+'</p>':'')+'</div></article>';
+    }).join('');
+
+    var totalPages=Math.ceil(allItems.length/itemsPerPage);
+    renderPagination(page,totalPages);
+  }
+
+  function renderPagination(current,total){
+    var pag=document.getElementById('pagination');
+    var html='';
+    
+    if(current>1){
+      html+='<a onclick="window.renderPage('+(current-1)+')">←</a>';
+    }
+    
+    for(var i=1;i<=total;i++){
+      if(i===current){
+        html+='<span class="current">'+i+'</span>';
+      }else if(i<current-2 || i>current+2){
+        if(i===current-3 || i===current+3){
+          html+='<span class="dots">…</span>';
+        }
+      }else{
+        html+='<a onclick="window.renderPage('+i+')">'+i+'</a>';
+      }
+    }
+    
+    if(current<total){
+      html+='<a onclick="window.renderPage('+(current+1)+')">→</a>';
+    }
+    
+    pag.innerHTML=html;
+  }
+
+  window.renderPage=renderPage;
+})();
+</script>
+</body>
+</html>
