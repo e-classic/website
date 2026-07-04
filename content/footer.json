@@ -1,0 +1,27 @@
+```json
+{
+  "copyright": "© 2025 株式会社E-Classic. All rights reserved.",
+  "links": [
+    {
+      "text": "トップページ",
+      "url": "https://e-classic.jp"
+    },
+    {
+      "text": "施工事例",
+      "url": "https://e-classic.jp#works"
+    },
+    {
+      "text": "よくあるご質問",
+      "url": "https://e-classic.jp#faq"
+    },
+    {
+      "text": "お問い合わせ",
+      "url": "https://e-classic.jp#contact"
+    }
+  ],
+  "phone": "03-XXXX-XXXX",
+  "email": "info@e-classic.jp"
+}
+```
+
+---
