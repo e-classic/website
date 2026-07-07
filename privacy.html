@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー | {{companyName}}</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    background: #F7F4EC;
+    color: #2A2722;
+    line-height: 1.9;
+  }
+  .setup-bar {
+    background: #FFE8CC;
+    border-bottom: 2px solid #C68B2C;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .setup-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .setup-label {
+    font-size: 0.9rem;
+    color: #5B574C;
+    font-weight: 500;
+  }
+  .setup-input {
+    padding: 8px 12px;
+    border: 1px solid #C68B2C;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+  .setup-btn {
+    padding: 8px 16px;
+    background: #1F3B30;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  .setup-btn:hover {
+    background: #16291F;
+  }
+  .setup-status {
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: #E8F5E9;
+    color: #2E7D32;
+  }
+  header {
+    background: #fff;
+    padding: 30px 0;
+    border-bottom: 1px solid #E0DACE;
+  }
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  header h1 {
+    color: #1F3B30;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  .page {
+    padding: 80px 0;
+  }
+  .page-head {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  .page-head h1 {
+    color: #1F3B30;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .page-head p {
+    color: #5B574C;
+    font-size: 0.95rem;
+  }
+  .content {
+    max-width: 800px;
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  h2 {
+    color: #1F3B30;
+    font-size: 1.3rem;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #EFEADD;
+  }
+  h2:first-of-type {
+    margin-top: 0;
+  }
+  h3 {
+    color: #1F3B30;
+    font-size: 1.1rem;
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
+  p, li {
+    margin-bottom: 12px;
+    color: #2A2722;
+  }
+  ul {
+    margin-left: 24px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #E0DACE;
+  }
+  th {
+    background: #EFEADD;
+    color: #1F3B30;
+    font-weight: 500;
+    width: 120px;
+  }
+  a {
+    color: #1F3B30;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  footer {
+    background: #1F3B30;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 80px;
+  }
+  footer a {
+    color: #C68B2C;
+  }
+  .placeholder {
+    background: #FFF3E0;
+    color: #E65100;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="setup-bar">
+  <div class="setup-wrap">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span class="setup-label">📋 会社情報を設定：</span>
+      <input type="text" id="setupCompanyName" class="setup-input" placeholder="会社名" style="width: 140px;">
+      <input type="tel" id="setupPhone" class="setup-input" placeholder="電話番号" style="width: 140px;">
+      <input type="email" id="setupEmail" class="setup-input" placeholder="メール" style="width: 160px;">
+    </div>
+    <button onclick="saveCompanyInfo()" class="setup-btn">保存</button>
+    <span class="setup-status" id="setupStatus" style="display: none;">✓ 保存されました</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <h1 id="headerTitle">{{companyName}}</h1>
+  </div>
+</header>
+
+<section class="page">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>プライバシーポリシー</h1>
+      <p>個人情報の取り扱いについて</p>
+    </div>
+
+    <div class="content">
+      <h2>1. 当社について</h2>
+      <p>
+        <span id="content-company">{{companyName}}</span>（以下「当社」）は、お客様の個人情報を重要に考え、
+        本プライバシーポリシーに基づいて個人情報を適切に取り扱います。
+      </p>
+
+      <h2>2. 収集する個人情報</h2>
+      <p>当社は、以下の個人情報をお問い合わせフォームやご相談時に収集いたします：</p>
+      <ul>
+        <li>お名前</li>
+        <li>メールアドレス</li>
+        <li>電話番号</li>
+        <li>住所・地域</li>
+        <li>ご相談内容</li>
+        <li>その他、ご相談の際にお知らせいただいた情報</li>
+      </ul>
+
+      <h2>3. 個人情報の利用目的</h2>
+      <p>収集させていただいた個人情報は、以下の目的で利用させていただきます：</p>
+      <ul>
+        <li>お問い合わせへのご返信</li>
+        <li>サービスの提供・ご相談対応</li>
+        <li>営業メール・ご提案のご連絡</li>
+        <li>サービス改善のためのご意見・ご感想の収集</li>
+      </ul>
+
+      <h2>4. 個人情報の保有期間</h2>
+      <p>ご相談終了後1年間は保管いたします。その後は適切に削除いたします。</p>
+
+      <h2>5. 個人情報の管理</h2>
+      <p>
+        当社は、個人情報の漏洩、改ざん、不正利用を防ぐため、
+        SSL（https）による暗号化通信を実装し、
+        適切な管理体制を整えています。
+      </p>
+
+      <h2>6. 個人情報の開示・訂正・削除について</h2>
+      <p>
+        お客様の個人情報に関するご質問、開示のご請求、訂正・削除のご希望については、
+        以下のお問い合わせ先までご連絡ください。
+      </p>
+
+      <h2>7. お問い合わせ</h2>
+      <p>プライバシーポリシーに関するご質問は、以下へお問い合わせください：</p>
+      <table>
+        <tr>
+          <th>会社名</th>
+          <td id="table-company">{{companyName}}</td>
+        </tr>
+        <tr>
+          <th>電話</th>
+          <td id="table-phone"><a href="tel:{{phone}}">{{phone}}</a></td>
+        </tr>
+        <tr>
+          <th>メール</th>
+          <td id="table-email"><a href="mailto:{{email}}">{{email}}</a></td>
+        </tr>
+      </table>
+
+      <h2>8. ポリシーの改定</h2>
+      <p>
+        当社は、プライバシーポリシーを予告なく改定することがあります。
+        改定後のポリシーは、本サイトに掲載した時点で有効となります。
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="footer-year">2024</span> <span id="footer-company">{{companyName}}</span>. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// LocalStorageから会社情報を取得・表示
+function loadCompanyInfo() {
+  const companyName = localStorage.getItem('companyName') || '{{companyName}}';
+  const phone = localStorage.getItem('phone') || '{{phone}}';
+  const email = localStorage.getItem('email') || '{{email}}';
+  
+  // フォーム入力欄に値をセット
+  document.getElementById('setupCompanyName').value = companyName === '{{companyName}}' ? '' : companyName;
+  document.getElementById('setupPhone').value = phone === '{{phone}}' ? '' : phone;
+  document.getElementById('setupEmail').value = email === '{{email}}' ? '' : email;
+  
+  // ページ内の値を置き換え
+  updatePageContent(companyName, phone, email);
+  
+  // 会社情報が入力されているか確認
+  if (companyName !== '{{companyName}}' && phone !== '{{phone}}' && email !== '{{email}}') {
+    showSetupStatus();
+  }
+}
+
+function updatePageContent(companyName, phone, email) {
+  document.title = `プライバシーポリシー | ${companyName}`;
+  document.getElementById('headerTitle').textContent = companyName;
+  document.getElementById('content-company').textContent = companyName;
+  document.getElementById('table-company').textContent = companyName;
+  
+  // 電話・メールリンク
+  const phoneLink = document.getElementById('table-phone');
+  const emailLink = document.getElementById('table-email');
+  
+  if (phone !== '{{phone}}') {
+    phoneLink.innerHTML = `<a href="tel:${phone}">${phone}</a>`;
+  } else {
+    phoneLink.innerHTML = '<span class="placeholder">未設定</span>';
+  }
+  
+  if (email !== '{{email}}') {
+    emailLink.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+  } else {
+    emailLink.innerHTML = '<span class="placeholder">未設定</span>';
+  }
+  
+  document.getElementById('footer-company').textContent = companyName;
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+}
+
+function saveCompanyInfo() {
+  const companyName = document.getElementById('setupCompanyName').value || '{{companyName}}';
+  const phone = document.getElementById('setupPhone').value || '{{phone}}';
+  const email = document.getElementById('setupEmail').value || '{{email}}';
+  
+  localStorage.setItem('companyName', companyName);
+  localStorage.setItem('phone', phone);
+  localStorage.setItem('email', email);
+  
+  updatePageContent(companyName, phone, email);
+  showSetupStatus();
+}
+
+function showSetupStatus() {
+  const status = document.getElementById('setupStatus');
+  status.style.display = 'inline-block';
+  setTimeout(() => {
+    status.style.display = 'none';
+  }, 3000);
+}
+
+// ページ読み込み時に実行
+window.addEventListener('DOMContentLoaded', loadCompanyInfo);
+</script>
+
+</body>
+</html>
