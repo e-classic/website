@@ -29,10 +29,10 @@
   .brand .jp{font-family:var(--serif);font-size:.9rem;color:var(--pine);letter-spacing:.12em}
   .brand .mark{font-family:var(--latin);font-size:1.95rem;letter-spacing:.03em;color:var(--pine);font-weight:700}
   header.site.scrolled .brand .mark{font-size:1.7rem}
-  nav.main{display:flex;gap:6px;align-items:center}
-  nav.main a{font-size:.65rem;letter-spacing:.04em;color:var(--pine);font-weight:500;transition:color .25s;white-space:nowrap}
+  nav.main{display:flex;gap:19px;align-items:center}
+  nav.main a{font-size:.82rem;letter-spacing:.1em;color:var(--pine);font-weight:500;transition:color .25s;white-space:nowrap}
   nav.main a:hover{color:var(--sun)}
-  nav.main .nav-cta{border:1px solid var(--pine);color:var(--pine);padding:6px 12px;border-radius:999px;font-size:.62rem;letter-spacing:.04em;transition:background .25s,color .25s}
+  nav.main .nav-cta{border:1px solid var(--pine);color:var(--pine);padding:9px 18px;border-radius:999px;font-size:.78rem;letter-spacing:.08em;transition:background .25s,color .25s}
   nav.main .nav-cta:hover{background:var(--pine);color:var(--paper)}
   .menu-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--pine);font-family:var(--serif);font-size:.85rem;letter-spacing:.15em}
 
@@ -44,10 +44,11 @@
   .btn-ghost .arrow{transition:transform .25s;display:inline-block}
   .btn-ghost:hover .arrow{transform:translateX(4px)}
 
-  .hero{position:relative;padding-top:84px;background:radial-gradient(120% 90% at 78% 8%,rgba(227,183,101,0.22),transparent 48%),radial-gradient(140% 120% at 12% 100%,rgba(31,59,48,0.10),transparent 55%),var(--paper);overflow:hidden}
-  .hero-body{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:42px 28px 92px}
-  .hero-illust{width:100%;display:block}
-  .hero p.lead{font-size:1.02rem;color:var(--ink-soft);max-width:38em;line-height:2.05;margin-bottom:40px}
+  .hero{position:relative;padding-top:70px;background:var(--paper);overflow:hidden;line-height:0}
+  .hero-body{position:relative;z-index:2;margin:0;padding:0}
+  .hero-illust{width:100vw;max-width:100vw;height:auto;display:block;margin:0}
+  .hero-text{max-width:1120px;margin:0 auto;padding:44px 28px 0}
+  .hero p.lead{font-size:1.05rem;color:var(--ink-soft);max-width:38em;line-height:2.05;margin-bottom:34px}
   .hero-cta{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
   .hero-foot{position:absolute;bottom:26px;left:0;right:0;z-index:2}
   .hero-foot .wrap{display:flex;justify-content:space-between;align-items:center;color:var(--ink-soft);font-size:.74rem;letter-spacing:.12em}
@@ -124,7 +125,11 @@
 
   /* コラム（動的） */
   .columns{background:var(--paper-2)}
-  .col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .col-grid{display:flex;overflow-x:auto;gap:30px;scroll-behavior:smooth;padding:20px 0}
+  .col-grid::-webkit-scrollbar{height:6px}
+  .col-grid::-webkit-scrollbar-track{background:var(--line)}
+  .col-grid::-webkit-scrollbar-thumb{background:var(--sun);border-radius:3px}
+  .col-card{flex:0 0 calc(33.333% - 20px);min-width:280px}
   .col-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;transition:transform .35s,box-shadow .35s}
   .col-card:hover{transform:translateY(-4px);box-shadow:0 26px 52px -32px rgba(31,59,48,.45)}
   .col-card figure,.col-card .ph{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -192,6 +197,9 @@
   .foot-tag{font-family:var(--serif);font-size:1rem;color:var(--sun-soft);letter-spacing:.05em;line-height:1.8;text-align:right}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-top:24px;font-size:.76rem;letter-spacing:.08em}
   .foot-bottom .url{font-family:var(--latin);color:var(--sun-soft);font-size:.95rem;letter-spacing:.03em}
+  .foot-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+  .foot-links a{color:rgba(247,244,236,.72);text-decoration:none;font-size:.85rem;letter-spacing:.06em;transition:color .25s}
+  .foot-links a:hover{color:var(--sun-soft)}
 
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
@@ -202,7 +210,7 @@
     .features-grid{grid-template-columns:1fr}
     .works-grid{gap:20px}
     .case{flex:0 0 calc(50% - 10px)}
-    .col-grid{grid-template-columns:1fr 1fr}
+    .col-card{flex:0 0 calc(50% - 10px)}
     .company-grid,.form-wrap{grid-template-columns:1fr;gap:36px}
   }
   @media(max-width:680px){
@@ -210,11 +218,11 @@
     .menu-toggle{display:block}
     .sec{padding:78px 0}
     .hero{padding-top:70px}
-    .hero-body{padding:30px 22px 80px}
+    .hero-body{padding:0}
     .maker{width:calc((100% - 16px)/2)}
     .works-grid{gap:15px}
     .case{flex:0 0 calc(100% - 0px)}
-    .col-grid{grid-template-columns:1fr}
+    .col-card{flex:0 0 calc(100% - 0px)}
     .hero-foot{display:none}
     .foot-tag{text-align:left}
     .flow-step{grid-template-columns:46px 1fr;gap:16px}
@@ -233,7 +241,7 @@
 
 <header class="site" id="header">
   <div class="wrap bar">
-    <a href="#top" class="brand" aria-label="株式会社E-Classic"><span class="jp">株式会社</span><span class="mark">E-Classic</span></a>
+    <a href="#top" class="brand" aria-label="株式会社E-Classic"><span class="jp" id="brandJp">株式会社</span><span class="mark" id="brandMark">E-Classic</span></a>
     <nav class="main">
       <a href="#creed">企業理念</a>
       <a href="#flow">導入の流れ</a>
@@ -265,8 +273,15 @@
 <!-- ヒーロー（管理画面で更新） -->
 <section class="hero" id="top">
   <div id="heroContent"></div>
-  <div class="hero-foot" aria-hidden="true"><div class="wrap"><span>株式会社E-Classic</span><span class="url">https://e-classic.jp</span></div></div>
+
 </section>
+
+<div style="background:var(--paper-2);padding:40px 20px">
+  <div style="max-width:1120px;margin:0 auto;display:flex;gap:12px;flex-wrap:nowrap;justify-content:center">
+    <a href="#contact" class="btn btn-primary" style="white-space:nowrap;padding:15px 24px">お問い合わせ</a>
+    <a href="#works" class="btn btn-primary" style="white-space:nowrap;padding:15px 24px">施工実績を見る</a>
+  </div>
+</div>
 
 <!-- 企業理念 -->
 <section class="sec creed" id="creed">
@@ -288,29 +303,8 @@
 <!-- 取扱メーカー -->
 <section class="sec makers" id="makers">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="sec-eyebrow">Makers</div><h2 class="sec-title">取扱メーカー<small>国内外問わず、多種多様なメーカーを取り扱い</small></h2></div>
-    <div class="makers-grid reveal">
-      <div class="maker"><img src="images/makers/sharp.png" alt=""></div>
-      <div class="maker"><img src="images/makers/panasonic.png" alt=""></div>
-      <div class="maker"><img src="images/makers/toshiba.png" alt=""></div>
-      <div class="maker"><img src="images/makers/mitsubishi.png" alt=""></div>
-      <div class="maker"><img src="images/makers/hitachi.png" alt=""></div>
-      <div class="maker"><img src="images/makers/kyocera.png" alt=""></div>
-      <div class="maker"><img src="images/makers/choshu.png" alt=""></div>
-      <div class="maker"><img src="images/makers/sumitomo.png" alt=""></div>
-      <div class="maker"><img src="images/makers/daikin.png" alt=""></div>
-      <div class="maker"><img src="images/makers/corona.png" alt=""></div>
-      <div class="maker"><img src="images/makers/omron.png" alt=""></div>
-      <div class="maker"><img src="images/makers/nichicon.png" alt=""></div>
-      <div class="maker"><img src="images/makers/dz.png" alt=""></div>
-      <div class="maker"><img src="images/makers/dmm.png" alt=""></div>
-      <div class="maker"><img src="images/makers/xsol.png" alt=""></div>
-      <div class="maker"><img src="images/makers/qcells.png" alt=""></div>
-      <div class="maker"><img src="images/makers/hanwha.png" alt=""></div>
-      <div class="maker"><img src="images/makers/canadiansolar.png" alt=""></div>
-      <div class="maker"><img src="images/makers/silfine.png" alt=""></div>
-      <div class="maker"><img src="images/makers/huawei.png" alt=""></div>
-    </div>
+    <div class="sec-head reveal"><div class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="sec-eyebrow">Makers</div><h2 class="sec-title" id="makersTitle">取扱メーカー<small>国内外問わず、多種多様なメーカーを取り扱い</small></h2></div>
+    <div class="makers-grid reveal" id="makersGrid"></div>
   </div>
 </section>
 
@@ -345,6 +339,7 @@
   <div class="wrap">
     <div class="sec-head reveal"><div class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.6a2.4 2.4 0 0 1 4.4 1.3c0 1.6-2 1.7-2 3"/><path d="M12 17.5h.01"/></svg></div><div class="sec-eyebrow">Q&amp;A</div><h2 class="sec-title">よくあるご質問</h2></div>
     <div class="faq-list" id="faq-list"><p class="feed-empty">読み込み中…</p></div>
+    <div class="works-more reveal" id="faqMore" style="display:none"><a href="faq-list.html" class="btn btn-ghost">すべてのご質問を見る <span class="arrow">→</span></a></div>
   </div>
 </section>
 
@@ -362,7 +357,7 @@
     <div class="sec-head reveal"><div class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div class="sec-eyebrow">Contact</div><h2 class="sec-title">お問い合わせ</h2></div>
     <div class="form-wrap">
       <div class="form-side reveal">
-        <p class="lede">「うちの屋根でもできる？」<br>その一言から、<span class="q">「上質に」</span></p>
+        <p class="lede">「うちの家でもできる？」<br>その一言から<span class="q">"E暮らし"に。</span></p>
         <div class="contact-line" id="contactInfo"></div>
       </div>
       <form class="form" id="contactForm" novalidate>
@@ -389,10 +384,10 @@
 <footer class="site" id="footerContent">
   <div class="wrap">
     <div class="foot-top">
-      <div class="foot-brand"><span class="mark">E-Classic</span><span class="jp">株式会社E-Classic</span></div>
-      <div class="foot-tag">ECO × 上質な施工品質 ＝ 良い暮らし<br>"E暮らし"を「上質に」</div>
+      <div class="foot-brand"><span class="mark" id="footMark">E-Classic</span><span class="jp" id="footJp">株式会社E-Classic</span></div>
+      <div class="foot-tag" id="footTag">ECO × 上質な施工品質 ＝ 良い暮らし<br>"E暮らし"を「上質に」</div>
     </div>
-    <div class="foot-bottom"><span class="url">https://e-classic.jp</span><span id="footerCopyright">© 2026 E-Classic Inc. All rights reserved.</span></div>
+    <div class="foot-bottom"><div id="footerLinks" class="foot-links"></div><span class="url">https://e-classic.jp</span><span id="footerCopyright">© 2026 E-Classic Inc. All rights reserved.</span></div>
   </div>
 </footer>
 
@@ -420,23 +415,35 @@
   loadJSON('content/hero.json').then(function(d){
     var hc=document.getElementById('heroContent');
     if(!d||!hc)return;
-    var html='<div class="hero-body"><img class="hero-illust reveal" src="'+esc(d.image)+'" alt="hero"><p class="lead">'+esc(d.description)+'</p><div class="hero-cta">';
-    (d.buttons||[]).forEach(function(b){
-      html+='<a href="'+esc(b.url)+'" class="btn btn-primary">'+esc(b.text)+'</a>';
-    });
-    html+='</div></div>';
+    var html='<div class="hero-body"><img class="hero-illust" src="'+esc(d.image)+'" alt="株式会社E-Classic"></div>';
     hc.innerHTML=html;
   });
 
-  // ===== 企業理念（会社情報から）=====
-  loadJSON('content/company.json').then(function(d){
+  // ===== 企業理念（専用JSON・見出しも本文も編集可能）=====
+  loadJSON('content/creed.json').then(function(d){
     if(!d)return;
+    var ct=document.getElementById('creedTitle');
+    if(ct&&d.title){
+      var t=nl2br(d.title).replace(/「([^」]*)」/g,'<span class="q">「$1」</span>');
+      ct.innerHTML=t;
+    }
     var cc=document.getElementById('creedContent');
     if(cc){
-      var html='<p class="reveal">'+nl2br(d.mission)+'</p>';
-      if(d.vision) html+='<p class="reveal">'+nl2br(d.vision)+'</p>';
+      var html='';
+      (d.paragraphs||[]).forEach(function(p){ html+='<p class="reveal">'+nl2br(p)+'</p>'; });
       cc.innerHTML=html;
     }
+  });
+
+  // ===== 取扱メーカー読み込み =====
+  loadJSON('content/makers.json').then(function(d){
+    var mg=document.getElementById('makersGrid');
+    if(!mg)return;
+    var items=(d&&d.items)||[];
+    if(!items.length){mg.innerHTML='<p class="feed-empty">準備中です。</p>';return;}
+    mg.innerHTML=items.map(function(m){
+      return '<div class="maker"><img src="'+esc(m.logo)+'" alt="'+esc(m.name||'')+'"></div>';
+    }).join('');
   });
 
   // ===== ご導入の流れ読み込み =====
@@ -489,9 +496,11 @@
     var w=document.getElementById('faq-list'); if(!w)return;
     var items=(d&&d.items)||[];
     if(!items.length){w.innerHTML='<p class="feed-empty">準備中です。</p>';return;}
-    w.innerHTML=items.map(function(it){
+    var display=items.slice(0,5);
+    w.innerHTML=display.map(function(it){
       return '<details class="faq-item reveal"><summary><span class="q">Q</span><span class="qt">'+esc(it.question)+'</span><span class="chev">▼</span></summary><div class="ans"><span class="a">A</span><div>'+(it.answer?nl2br(it.answer):'')+'</div></div></details>';
     }).join('');
+    if(items.length>5){var fm=document.getElementById('faqMore'); if(fm) fm.style.display='flex';}
   });
 
   // ===== 会社概要読み込み =====
@@ -519,7 +528,29 @@
   loadJSON('content/footer.json').then(function(d){
     if(!d)return;
     var fc=document.getElementById('footerCopyright');
-    if(fc) fc.textContent=d.copyright;
+    if(fc&&d.copyright) fc.textContent=d.copyright;
+    var fm=document.getElementById('footMark');
+    if(fm&&d.brandMark) fm.textContent=d.brandMark;
+    var fj=document.getElementById('footJp');
+    if(fj&&d.brandName) fj.textContent=d.brandName;
+    var ft=document.getElementById('footTag');
+    if(ft&&d.tagline) ft.innerHTML=nl2br(d.tagline);
+    // links 表示
+    var fl=document.getElementById('footerLinks');
+    if(fl&&d.links&&Array.isArray(d.links)){
+      fl.innerHTML=d.links.map(function(link){
+        return '<a href="'+esc(link.url)+'">'+esc(link.label)+'</a>';
+      }).join('');
+    }
+  });
+
+  // ===== サイト設定（メニューバー社名など）=====
+  loadJSON('content/site-settings.json').then(function(d){
+    if(!d)return;
+    var bj=document.getElementById('brandJp');
+    if(bj&&d.brandJp) bj.textContent=d.brandJp;
+    var bm=document.getElementById('brandMark');
+    if(bm&&d.brandMark) bm.textContent=d.brandMark;
   });
 
   // ===== お問い合わせフォーム =====
