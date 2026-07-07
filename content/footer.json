@@ -1,27 +1,10 @@
-```json
 {
-  "copyright": "© 2025 株式会社E-Classic. All rights reserved.",
+  "brandMark": "E-Classic",
+  "brandName": "株式会社E-Classic",
+  "tagline": "\"E暮らし\"を「上質に」\nECO × 暮らし × Classic",
+  "copyright": "© 2026 E-Classic Inc. All rights reserved.",
   "links": [
-    {
-      "text": "トップページ",
-      "url": "https://e-classic.jp"
-    },
-    {
-      "text": "施工事例",
-      "url": "https://e-classic.jp#works"
-    },
-    {
-      "text": "よくあるご質問",
-      "url": "https://e-classic.jp#faq"
-    },
-    {
-      "text": "お問い合わせ",
-      "url": "https://e-classic.jp#contact"
-    }
-  ],
-  "phone": "03-XXXX-XXXX",
-  "email": "info@e-classic.jp"
+    { "label": "プライバシーポリシー", "url": "/privacy.html" },
+    { "label": "特定商取引に基づく表記", "url": "/tokushoho.html" }
+  ]
 }
-```
-
----
