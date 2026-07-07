@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定商取引に基づく表記 | {{companyName}}</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    background: #F7F4EC;
+    color: #2A2722;
+    line-height: 1.9;
+  }
+  .setup-bar {
+    background: #FFE8CC;
+    border-bottom: 2px solid #C68B2C;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .setup-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .setup-label {
+    font-size: 0.9rem;
+    color: #5B574C;
+    font-weight: 500;
+  }
+  .setup-input {
+    padding: 8px 12px;
+    border: 1px solid #C68B2C;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+  .setup-btn {
+    padding: 8px 16px;
+    background: #1F3B30;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  .setup-btn:hover {
+    background: #16291F;
+  }
+  .setup-status {
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: #E8F5E9;
+    color: #2E7D32;
+  }
+  header {
+    background: #fff;
+    padding: 30px 0;
+    border-bottom: 1px solid #E0DACE;
+  }
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  header h1 {
+    color: #1F3B30;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  .page {
+    padding: 80px 0;
+  }
+  .page-head {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  .page-head h1 {
+    color: #1F3B30;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .page-head p {
+    color: #5B574C;
+    font-size: 0.95rem;
+  }
+  .content {
+    max-width: 800px;
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  h2 {
+    color: #1F3B30;
+    font-size: 1.3rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  h2:first-of-type {
+    margin-top: 0;
+  }
+  table {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 14px;
+    text-align: left;
+    border: 1px solid #E0DACE;
+  }
+  th {
+    background: #EFEADD;
+    color: #1F3B30;
+    font-weight: 500;
+    width: 160px;
+  }
+  p {
+    margin-bottom: 12px;
+    color: #2A2722;
+  }
+  a {
+    color: #1F3B30;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  footer {
+    background: #1F3B30;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 80px;
+  }
+  footer a {
+    color: #C68B2C;
+  }
+  .placeholder {
+    background: #FFF3E0;
+    color: #E65100;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="setup-bar">
+  <div class="setup-wrap">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span class="setup-label">📋 会社情報を設定：</span>
+      <input type="text" id="setupCompanyName" class="setup-input" placeholder="会社名" style="width: 140px;">
+      <input type="tel" id="setupPhone" class="setup-input" placeholder="電話番号" style="width: 140px;">
+      <input type="email" id="setupEmail" class="setup-input" placeholder="メール" style="width: 160px;">
+    </div>
+    <button onclick="saveCompanyInfo()" class="setup-btn">保存</button>
+    <span class="setup-status" id="setupStatus" style="display: none;">✓ 保存されました</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <h1 id="headerTitle">{{companyName}}</h1>
+  </div>
+</header>
+
+<section class="page">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>特定商取引に基づく表記</h1>
+      <p>販売事業者の情報</p>
+    </div>
+
+    <div class="content">
+      <h2>販売事業者情報</h2>
+      <table>
+        <tr>
+          <th>販売事業者</th>
+          <td id="table-company">{{companyName}}</td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td id="table-phone"><a href="tel:{{phone}}">{{phone}}</a></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td id="table-email"><a href="mailto:{{email}}">{{email}}</a></td>
+        </tr>
+      </table>
+
+      <h2>商品・サービス情報</h2>
+      <table>
+        <tr>
+          <th>商品・サービス</th>
+          <td>太陽光発電システム・蓄電池の販売・施工・アフターサービス</td>
+        </tr>
+        <tr>
+          <th>価格</th>
+          <td>見積もり（施工内容により異なります。詳細はお問い合わせください。）</td>
+        </tr>
+      </table>
+
+      <h2>取引条件</h2>
+      <table>
+        <tr>
+          <th>支払い方法</th>
+          <td>
+            <span id="payment-methods">{{paymentMethods}}</span>
+            <span style="display: block; font-size: 0.9rem; color: #5B574C; margin-top: 8px;">※ 詳細はお問い合わせ時にご相談ください</span>
+          </td>
+        </tr>
+        <tr>
+          <th>支払い時期</th>
+          <td>施工完了時 / 別途協議</td>
+        </tr>
+        <tr>
+          <th>納期・施工期間</th>
+          <td>施工依頼後、最短2週間以内に完工予定（現場状況により異なります）</td>
+        </tr>
+        <tr>
+          <th>訪問営業</th>
+          <td>あり</td>
+        </tr>
+      </table>
+
+      <h2>キャンセル・返品について</h2>
+      <p>
+        特定商取引法に基づくクーリングオフ制度が適用されます。
+        契約から8日以内にご連絡いただければ、費用を負担せず契約を解除できます。
+        詳しくはお問い合わせください。
+      </p>
+
+      <h2>お問い合わせ先</h2>
+      <table>
+        <tr>
+          <th>会社名</th>
+          <td id="contact-company">{{companyName}}</td>
+        </tr>
+        <tr>
+          <th>電話</th>
+          <td id="contact-phone"><a href="tel:{{phone}}">{{phone}}</a></td>
+        </tr>
+        <tr>
+          <th>メール</th>
+          <td id="contact-email"><a href="mailto:{{email}}">{{email}}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="footer-year">2024</span> <span id="footer-company">{{companyName}}</span>. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// LocalStorageから会社情報を取得・表示
+function loadCompanyInfo() {
+  const companyName = localStorage.getItem('companyName') || '{{companyName}}';
+  const phone = localStorage.getItem('phone') || '{{phone}}';
+  const email = localStorage.getItem('email') || '{{email}}';
+  
+  // フォーム入力欄に値をセット
+  document.getElementById('setupCompanyName').value = companyName === '{{companyName}}' ? '' : companyName;
+  document.getElementById('setupPhone').value = phone === '{{phone}}' ? '' : phone;
+  document.getElementById('setupEmail').value = email === '{{email}}' ? '' : email;
+  
+  // ページ内の値を置き換え
+  updatePageContent(companyName, phone, email);
+  
+  // 会社情報が入力されているか確認
+  if (companyName !== '{{companyName}}' && phone !== '{{phone}}' && email !== '{{email}}') {
+    showSetupStatus();
+  }
+}
+
+function updatePageContent(companyName, phone, email) {
+  document.title = `特定商取引に基づく表記 | ${companyName}`;
+  document.getElementById('headerTitle').textContent = companyName;
+  document.getElementById('table-company').textContent = companyName;
+  document.getElementById('contact-company').textContent = companyName;
+  
+  // 電話・メールリンク
+  const phoneElements = [
+    document.getElementById('table-phone'),
+    document.getElementById('contact-phone')
+  ];
+  
+  const emailElements = [
+    document.getElementById('table-email'),
+    document.getElementById('contact-email')
+  ];
+  
+  phoneElements.forEach(el => {
+    if (phone !== '{{phone}}') {
+      el.innerHTML = `<a href="tel:${phone}">${phone}</a>`;
+    } else {
+      el.innerHTML = '<span class="placeholder">未設定</span>';
+    }
+  });
+  
+  emailElements.forEach(el => {
+    if (email !== '{{email}}') {
+      el.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+    } else {
+      el.innerHTML = '<span class="placeholder">未設定</span>';
+    }
+  });
+  
+  document.getElementById('footer-company').textContent = companyName;
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+}
+
+function saveCompanyInfo() {
+  const companyName = document.getElementById('setupCompanyName').value || '{{companyName}}';
+  const phone = document.getElementById('setupPhone').value || '{{phone}}';
+  const email = document.getElementById('setupEmail').value || '{{email}}';
+  
+  localStorage.setItem('companyName', companyName);
+  localStorage.setItem('phone', phone);
+  localStorage.setItem('email', email);
+  
+  updatePageContent(companyName, phone, email);
+  showSetupStatus();
+}
+
+function showSetupStatus() {
+  const status = document.getElementById('setupStatus');
+  status.style.display = 'inline-block';
+  setTimeout(() => {
+    status.style.display = 'none';
+  }, 3000);
+}
+
+// ページ読み込み時に実行
+window.addEventListener('DOMContentLoaded', loadCompanyInfo);
+</script>
+
+</body>
+</html>
